@@ -68,6 +68,15 @@
                 text-decoration: none;
                 color: var(--color-accent);
             }
+        .socials {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-self: center;
+            a {
+                text-decoration: none;
+            }
+        }
 
         }
     }
