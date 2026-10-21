@@ -4,9 +4,9 @@
 /* Definition of base styles. */
 :root {
     /* colors */
-    --color-white: #ffffff;
+    --color-off-white: #FFF6E8;
     --color-black: #000000;
-    --color-accent: #ff0000;
+    --color-accent: #d40004;
     /* gaps & sizes */
     --gap-around: 40px;
     /* fonts */
@@ -15,15 +15,62 @@
 
 /* Styling of all available layout components. */
 [data-layout="header"] {
+
+    .logo {
+        width: 25px;
+        height: auto;
+    }
+
     padding: var(--gap-around);
-    background-color: var(--color-accent);
+    background-color: var(--color-off-white);
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .nav-container {
+        .nav {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-self: center;
+            gap: 20px;
+            a {
+                text-decoration: none;
+                color: var(--color-accent);
+            }
+
+        }
+    }
 }
+
+
 [data-layout="footer"] {
+
+    .logo {
+        width: 40px;
+        height: auto;
+    }
     padding: var(--gap-around);
-    background-color: var(--color-accent);
+    background-color: var(--color-off-white);
+    .nav-container {
+        .nav {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-self: center;
+            gap: 20px;
+            a {
+                text-decoration: none;
+                color: var(--color-accent);
+            }
+
+        }
+    }
 }
 
 /* Styling of all available page components. */
