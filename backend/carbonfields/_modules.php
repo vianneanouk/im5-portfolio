@@ -28,6 +28,14 @@ Container::make('post_meta', 'Module')
                         ]
                     ])
             ])
+
+            // -> about_me
+            ->add_fields('about_me', 'Über mich', [
+                Field::make('text', 'title', 'Titel'),
+                Field::make('image', 'image', 'Bild'),
+                Field::make('textarea', 'description', 'Beschreibung'),
+                Field::make('image', 'icon', 'Icon'),
+            ])
             // todo: add new modules here
             // -> SETTINGS
             ->set_layout('tabbed-vertical')
@@ -50,6 +58,9 @@ function render_modules (): void {
                 $module['selection'] = array_map( callback: function($item) {
                     return (int) $item['id'];
                 }, array: $module['selection'] );
+                break;
+            case 'about_me':
+                $module['image'] = get_media_by_id($module['image'], 'full');
                 break;
                 // todo: add data modifications for modules here as a new case
         }
