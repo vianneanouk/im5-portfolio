@@ -7,6 +7,7 @@ js_log($socials);
 
 <footer data-layout="footer">
     <img class="logo" src="<?= $logo['src']?>" alt="<?= $logo['alt'] ?>">
+    <div class="footer-content">
     <div class="socials">
         <p class="copyright">© Vianne Häfeli <?= date('Y') ?></p>
             <?php foreach ($socials as $item) : ?>
@@ -26,4 +27,5 @@ js_log($socials);
               <?php endforeach; ?>
        </ul>
    </nav>
+    </div>
 </footer>

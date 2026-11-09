@@ -17,7 +17,7 @@
 [data-layout="header"] {
 
     .logo {
-        width: 25px;
+        width: 50px;
         height: auto;
     }
 
@@ -37,8 +37,10 @@
             flex-direction: row;
             justify-content: flex-end;
             align-self: center;
-            gap: 20px;
+            gap: 70px;
             a {
+                font-family: 'Archivo', sans-serif;
+                font-size: 20px;
                 text-decoration: none;
                 color: var(--color-accent);
             }
@@ -50,10 +52,44 @@
 
 [data-layout="footer"] {
 
-    .logo {
-        width: 40px;
-        height: auto;
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
+
+    .logo {
+        width: 100px;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .socials {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+
+        .copyright {
+            font-family: 'Archivo', sans-serif;
+            font-size: 16px;
+            color: var(--color-accent);
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+            }
+        }
+    }
+
     padding: var(--gap-around);
     background-color: var(--color-off-white);
     .nav-container {
@@ -63,22 +99,18 @@
             flex-direction: row;
             justify-content: flex-end;
             align-self: center;
-            gap: 20px;
+            gap: 40px;
             a {
+                font-family: 'Archivo', sans-serif;
+                font-size: 16px;
                 text-decoration: none;
                 color: var(--color-accent);
             }
-        .socials {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-self: center;
-            a {
-                text-decoration: none;
-            }
-        }
+
 
         }
+
+
     }
 }
 
