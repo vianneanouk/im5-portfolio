@@ -12,6 +12,12 @@ Container::make('post_meta', 'Module')
                 Field::make('text', 'title', 'Titel')->set_required(),
                 Field::make('image', 'image', 'Bild')->set_required(),
             ])
+            // -> hero_front
+            ->add_fields('hero_front', 'Hero Startseite', [
+                Field::make('text', 'title', 'Titel'),
+                Field::make('text', 'name', 'Name'),
+            ])
+
             // todo: add new modules here
             // -> SETTINGS
             ->set_layout('tabbed-vertical')
@@ -20,6 +26,7 @@ Container::make('post_meta', 'Module')
 // -> Funktion, um die Module und die entsprechenden Templates auf der Seite zu laden
 function render_modules (): void {
     $modules = carbon_get_the_post_meta('modules');
+    js_log(content:$modules);
     if (empty($modules)) {
         return;
     }

@@ -8,7 +8,7 @@
     --color-black: #000000;
     --color-accent: #d40004;
     /* gaps & sizes */
-    --gap-around: 40px;
+    --gap-around: 10px;
     /* fonts */
     --font-h1: normal 64px/120% serif;
 }
@@ -126,23 +126,28 @@
     position: relative;
     width: 100%;
 }
-[data-module="example"] {
+[data-module="hero_front"] {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    & > .image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        inset: 0;
-    }
-    & > .title {
+    position: relative;
+    background-color: var(--color-off-white);
+
+    & > .portfolio-titel {
         position: relative;
-        color: white;
-        font: var(--font-h1);
+        color: var(--color-black);
+        font-family: 'Archivo Black';
+        font-size: 128px;
+        font-weight: 800;
+        text-align: center;
+    }
+    & > .name-vianne {
+        position: absolute;
+        color: var(--color-accent);
+        font-family: 'Hurricane';
+        font-size: 48px;
         text-align: center;
     }
 }
