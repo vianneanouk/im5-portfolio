@@ -17,7 +17,17 @@ Container::make('post_meta', 'Module')
                 Field::make('text', 'title', 'Titel'),
                 Field::make('text', 'name', 'Name'),
             ])
-
+            // -> overview_projects
+            ->add_fields('overview_projects', 'Übersicht Projekte', [
+                Field::make('text', 'title', 'Titel'),
+                Field::make('association', 'selection', 'Auswahl Projekte' )
+                    ->set_types([
+                        [
+                            'type' => 'post',
+                            'post_type' => 'project',
+                        ]
+                    ])
+            ])
             // todo: add new modules here
             // -> SETTINGS
             ->set_layout('tabbed-vertical')
@@ -35,6 +45,11 @@ function render_modules (): void {
         switch ($module['_type']) {
             case 'example':
                 $module['image'] = get_media_by_id($module['image'], 'full');
+                break;
+            case 'overview_projects':
+                $module['selection'] = array_map( callback: function($item) {
+                    return (int) $item['id'];
+                }, array: $module['selection'] );
                 break;
                 // todo: add data modifications for modules here as a new case
         }
