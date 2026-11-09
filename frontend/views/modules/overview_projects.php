@@ -14,5 +14,4 @@ $data = $args['data'];
             </a>
         <?php endforeach; ?>
     </div>
-    <a href=""
 </section>

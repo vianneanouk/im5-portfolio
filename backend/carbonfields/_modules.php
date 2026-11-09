@@ -26,7 +26,8 @@ Container::make('post_meta', 'Module')
                             'type' => 'post',
                             'post_type' => 'project',
                         ]
-                    ])
+                    ]),
+                Field::make('text', 'link', 'Link'),
             ])
 
             // -> about_me
@@ -61,6 +62,7 @@ function render_modules (): void {
                 break;
             case 'about_me':
                 $module['image'] = get_media_by_id($module['image'], 'full');
+                $module['icon'] = get_media_by_id($module['icon'], 'full');
                 break;
                 // todo: add data modifications for modules here as a new case
         }

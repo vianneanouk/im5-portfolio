@@ -25,6 +25,15 @@ h1 {
     font-weight: 400;
     line-height: 120%;
     color: var(--color-accent);
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+p {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-black);
 }
 
 /* Styling of all available layout components. */
@@ -178,6 +187,45 @@ h1 {
         }
     }
 }
+
+[data-module="about_me"] {
+
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 20%;
+        justify-content: start;
+    }
+
+
+    .icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        width: 50px;
+        height: auto;
+
+    }
+
+    .image {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
 
 /* Styling of all available teaser components. */
 
