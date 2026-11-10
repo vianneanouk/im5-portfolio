@@ -37,6 +37,7 @@ Container::make('post_meta', 'Module')
                 Field::make('textarea', 'description', 'Beschreibung'),
                 Field::make('image', 'icon', 'Icon'),
             ])
+
             // todo: add new modules here
             // -> SETTINGS
             ->set_layout('tabbed-vertical')

@@ -9,9 +9,12 @@ $data = $args['data'];
         <?php
             $project = get_project_by_id(id: $project_id);
         ?>
-            <a href="<?= $project['link'] ?>" target="_self ">
+            <a href="<?= $project['link'] ?>" target="_self">
                 <img src="<?= $project['image'] ['src'] ?>" alt="<?= $project['image'] ['alt'] ?>">
             </a>
         <?php endforeach; ?>
     </div>
+    <a href="/projekte" target="_self" class="projects-link">
+        <?= esc_html($data['link']) ?>
+    </a>
 </section>
