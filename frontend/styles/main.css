@@ -144,6 +144,25 @@ p {
 
 [data-page="project"] {
 
+    .category {
+        font-family: 'Hurricane', sans-serif;
+        font-size: 24px;
+        color: var(--color-black);
+        padding-top: 30px;
+    }
+
+    .projects-link {
+        display: flex;
+        align-items: center;
+        font-family: 'Archivo', sans-serif;
+        font-size: 20px;
+        color: var(--color-black);
+        justify-content: start;
+        text-decoration: underline;
+        padding-top: 30px;
+    }
+}
+
     .slider {
         position: relative;
         padding-top: 30px;
@@ -179,7 +198,7 @@ p {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 2.5rem;
+        width: 12rem;
         height: 2.5rem;
         border: 0;
         background: none;

@@ -8,6 +8,7 @@ Container::make('post_meta', 'Projekt')
     ->add_fields([
         Field::make('image', 'image', 'Beitragsbild')-> set_required(),
         Field::make('textarea', 'description', 'Beschreibung')-> set_required(),
+        Field::make('text', 'category', 'Kategorie')-> set_required(),
         Field::make( 'file', 'crb_file', __( 'File' ) )
             ->set_type( array( 'audio', 'image' ) ),
         Field::make( 'media_gallery', 'crb_media_gallery', __( 'Media Gallery' ) )

@@ -6,7 +6,9 @@ js_log($socials);
 ?>
 
 <footer data-layout="footer">
-    <img class="logo" src="<?= $logo['src']?>" alt="<?= $logo['alt'] ?>">
+    <a class="logo-link" href="/startseite">
+        <img class="logo" src="<?= $logo['src']?>" alt="<?= $logo['alt'] ?>">
+    </a>
     <div class="footer-content">
     <div class="socials">
         <p class="copyright">© Vianne Häfeli <?= date('Y') ?></p>

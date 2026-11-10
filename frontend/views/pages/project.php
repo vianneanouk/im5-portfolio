@@ -4,6 +4,8 @@ js_log(content: $project);
 ?>
 
 <main data-page="project">
+    <p class="category"><?= $project['category']?></p>
+    <div><a class="projects-link" href="/projekt" >Alle Projekte</a></div>
     <h1><?= $project['title'] ?></h1>
     <p><?= $project['description'] ?></p>
     <div>

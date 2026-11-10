@@ -1,13 +1,13 @@
 <?php
 $menu = get_menu_by_slug('main');
 $logo = get_globals_logo();
-js_log (content:$logo);
 ?>
 
 
 <header data-layout="header">
-    <img class="logo" src="<?= $logo['src']?>" alt="<?= $logo['alt'] ?>" />
-    <nav class="nav-container">
+    <a class="logo-link" href="/startseite">
+        <img class="logo" src="<?= $logo['src'] ?>" alt="<?= $logo['alt'] ?>" />
+    </a>    <nav class="nav-container">
         <ul class="nav">
             <?php foreach ($menu as $item) : ?>
                 <li class="nav-item">
