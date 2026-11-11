@@ -44,35 +44,79 @@ Container::make('post_meta', 'Module')
     ]);
 
 // -> Funktion, um die Module und die entsprechenden Templates auf der Seite zu laden
-function render_modules (): void {
-    $modules = carbon_get_the_post_meta('modules');
-    js_log(content:$modules);
+function render_modules(): void {
+    $field_name = get_post_type() === 'project' ? 'project_modules' : 'modules';
+    $modules = carbon_get_the_post_meta($field_name);
+    js_log(content: $modules);
+
     if (empty($modules)) {
         return;
     }
+
     foreach ($modules as $module) {
         // -> Modifiziere die Daten des Moduls, falls nötig, basierend auf dem Modultyp
         switch ($module['_type']) {
+
+            // --- Seiten-Module ---
             case 'example':
                 $module['image'] = get_media_by_id($module['image'], 'full');
                 break;
+
             case 'overview_projects':
-                $module['selection'] = array_map( callback: function($item) {
+                $module['selection'] = array_map(function ($item) {
                     return (int) $item['id'];
-                }, array: $module['selection'] );
+                }, $module['selection']);
                 break;
+
             case 'about_me':
                 $module['image'] = get_media_by_id($module['image'], 'full');
-                $module['icon'] = get_media_by_id($module['icon'], 'full');
+                $module['icon']  = get_media_by_id($module['icon'], 'full');
                 break;
-                // todo: add data modifications for modules here as a new case
+
+            // --- Projekt-Module ---
+            case 'pdf':
+                $module['pdf'] = [
+                    'id'    => $module['pdf'],
+                    'url'   => wp_get_attachment_url($module['pdf']),
+                    'title' => get_the_title($module['pdf']),
+                ];
+                break;
+
+            case 'gallery':
+                $module['gallery'] = array_map(function ($id) {
+                    return [
+                        'id'  => $id,
+                        'url' => wp_get_attachment_image_url($id, 'full'),
+                        'alt' => get_post_meta($id, '_wp_attachment_image_alt', true),
+                    ];
+                }, (array) $module['gallery']);
+                break;
+
+            case 'audio_or_image':
+                $id        = $module['audio_or_image'];
+                $mime_type = get_post_mime_type($id) ?: '';
+
+                $module['audio_or_image'] = [
+                    'id'   => $id,
+                    'url'  => wp_get_attachment_url($id),
+                    'kind' => str_starts_with($mime_type, 'audio') ? 'audio' : 'image',
+                    'alt'  => get_post_meta($id, '_wp_attachment_image_alt', true),
+                ];
+                break;
+
+            case 'link':
+                $module['link'] = esc_url($module['link']);
+                break;
+
+            // todo: add data modifications for modules here as a new case
         }
+
         // -> Laden des Templates basierend auf dem Modultyp und weitergeben der Daten
         get_template_part(
             'frontend/views/modules/' . $module['_type'],
             null,
             [
-                'data' => $module
+                'data' => $module,
             ]
         );
     }

@@ -1,8 +1,14 @@
 <?php
-$data = $args['data'];
+$data  = $args['data'];
+$media = $data['audio_or_image'] ?? [];
 ?>
 
-<section data-module="example">
-    <img class="image" src="<?= $data['image']['src'] ?>" alt="<?= $data['image']['alt'] ?>">
-    <h1 class="title"><?= $data['title'] ?></h1>
-</section>
+<?php if (!empty($media['url'])) : ?>
+    <section data-module="audio_or_image">
+        <?php if ($media['kind'] === 'audio') : ?>
+            <audio controls src="<?= esc_url($media['url']) ?>"></audio>
+        <?php else : ?>
+            <img src="<?= esc_url($media['url']) ?>" alt="<?= esc_attr($media['alt']) ?>">
+        <?php endif; ?>
+    </section>
+<?php endif; ?>
